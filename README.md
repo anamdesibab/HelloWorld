@@ -13,10 +13,9 @@ This file has all the required queues for the POET. To add a new queue, simply a
 ### MqsFileBuilder.groovy
 The following are methods that can be used in build_mq_environments.groovy
 
+#### header(String poetQueueManager)
+Adds a header to the file with the current date/time and the given queue manager name
 <dl>
-  <dt>header(String poetQueueManager)</dt>
-  <dd>Adds a header to the file with the current date/time and the given queue manager name</dd>
-
   <dt>localQueueManager(String name)</dt>
   <dd>Configures the local queue manager with the given name and preset settings.</dd>
 
@@ -29,41 +28,41 @@ The following are methods that can be used in build_mq_environments.groovy
   <dt>queueLocal(String nodeId, String name[, Map options])</dt>
   <dd>Sets up a local queue and its corresponding error queue, nodeId and queue name are required. The name prefix (QC, QL) will automatically be determined and should not be included on the name. Additional settings can be included by passing an options map.</dd>
 
-  <dt>queueLocal(String name[, Map options])</dt>
-  <dd>Creates a non dc-specific local queue. Different from above method in that:
-    <ul>
-      <li>nodeId is not required</li>
-      <li>full queue name including prefix is expected</li>
-      <li>a corresponding error queue is NOT created</li>
-    </ul>
-  </dd>
+    <dt>queueLocal(String name[, Map options])</dt>
+    <dd>Creates a non dc-specific local queue. Different from above method in that:
+      <ul>
+        <li>nodeId is not required</li>
+        <li>full queue name including prefix is expected</li>
+        <li>a corresponding error queue is NOT created</li>
+      </ul>
+    </dd>
 
-  <dt>queueRemote(String nodeId, String name[, Map options])</dt>
-  <dd>Sets up a remote queue, nodeId and queue name are required. The name prefix (QR) will automatically be added and should not be included on the name. Additional settings can be included by passing an options map.</dd>
+    <dt>queueRemote(String nodeId, String name[, Map options])</dt>
+    <dd>Sets up a remote queue, nodeId and queue name are required. The name prefix (QR) will automatically be added and should not be included on the name. Additional settings can be included by passing an options map.</dd>
 
-  <dt>queueRemote(String name[, Map options])</dt>
-  <dd>Creates a non dc-specific remote queue. Different from above method in that:
-    <ul>
-      <li>nodeId is not required</li>
-      <li>full queue name including prefix is expected</li>
-    </ul>
-  </dd>
+    <dt>queueRemote(String name[, Map options])</dt>
+    <dd>Creates a non dc-specific remote queue. Different from above method in that:
+      <ul>
+        <li>nodeId is not required</li>
+        <li>full queue name including prefix is expected</li>
+      </ul>
+    </dd>
 
-  <dt>queueAlias(String nodeId, String name)</dt>
-  <dd>Creates an alias queue, nodeId and name are required. The name prefix (QA) will automatically be added and should not be included on the name.</dd>
+    <dt>queueAlias(String nodeId, String name)</dt>
+    <dd>Creates an alias queue, nodeId and name are required. The name prefix (QA) will automatically be added and should not be included on the name.</dd>
 
-  <dt>channel(String name, String type[, Map options])</dt>
-  <dd>Defines a channel with the given name and type. Preset settings can be overridden by passing an options map.</dd>
+    <dt>channel(String name, String type[, Map options])</dt>
+    <dd>Defines a channel with the given name and type. Preset settings can be overridden by passing an options map.</dd>
 
-  <dt>listener(String name, String port)</dt>
-  <dd>Defines a listener with the given name on the given port.</dd>
+    <dt>listener(String name, String port)</dt>
+    <dd>Defines a listener with the given name on the given port.</dd>
 
-  <dt>systemBrokerService(String poetQueueManager)</dt>
-  <dd>Defines the system broker service for the given local poetQueueManager</dd>
+    <dt>systemBrokerService(String poetQueueManager)</dt>
+    <dd>Defines the system broker service for the given local poetQueueManager</dd>
 
-  <dt>systemDefaults()</dt>
-  <dd>This is somewhat of a catch-all method to create boilerplate configurations. Any changes to this should be made directly in MqsFileBuilder.groovy.</dd>
-</dl>
+    <dt>systemDefaults()</dt>
+    <dd>This is somewhat of a catch-all method to create boilerplate configurations. Any changes to this should be made directly in MqsFileBuilder.groovy.</dd>
+  </dl>
 
 ### compare_mqs_files.py
 A simple utility to help with mqs file comparison. More than just a diff, will compare all contents of each file (independent of queue definition order) and output any differences.
