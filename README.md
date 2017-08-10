@@ -5,7 +5,7 @@ This is also where any changes should be committed. The repositories should be c
 
 ## Pre-requisites 
 
-## mq-environment-config.json
+### mq-environment-config.json
 This file contains all environment specific configurations. To add a new environment or change an existing one, simply modify this file.
 
 ### build_mq_environments.groovy
