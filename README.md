@@ -13,57 +13,56 @@ This file has all the required queues for the POET. To add a new queue, simply a
 ### MqsFileBuilder.groovy
 The following are methods that can be used in build_mq_environments.groovy
 
-`<dl>
-  <dt>header(String poetQueueManager)</dt>
-  <dt>Adds a header to the file with the current date/time and the given queue manager name</dt>
+   
+  ##### header(String poetQueueManager)
+  Adds a header to the file with the current date/time and the given queue manager name
 
-  <dt>localQueueManager(String name)</dt>
-  <dd>Configures the local queue manager with the given name and preset settings.</dd>
+  ##### localQueueManager(String name)
+  Configures the local queue manager with the given name and preset settings.
 
-  <dt>remoteQueueManager(String name, String poetQueueManager, String connectionName)</dt>
-  <dd>Sets up all required configuraton to connect to a remote queue manager with the given name. Also requires the local poetQueueManager name and a connectionName. This method adds both sender and receiver channels between the named remote queue manager and the local poetQueueManager. Additionally, the local transmit queue is also created.</dd>
+  ##### remoteQueueManager(String name, String poetQueueManager, String connectionName)
+  Sets up all required configuraton to connect to a remote queue manager with the given name. Also requires the local poetQueueManager name and a connectionName. This method adds both sender and receiver channels between the named remote queue manager and the local poetQueueManager. Additionally, the local transmit queue is also created.
 
-  <dt>queueModel(String name[, Map options])</dt>
-  <dd>Adds a queue model to the configuration with preset settings, specific settings can be overridden by passing an options map.</dd>
+  ##### queueModel(String name[, Map options])
+  Adds a queue model to the configuration with preset settings, specific settings can be overridden by passing an options map.
 
-  <dt>queueLocal(String nodeId, String name[, Map options])</dt>
-  <dd>Sets up a local queue and its corresponding error queue, nodeId and queue name are required. The name prefix (QC, QL) will automatically be determined and should not be included on the name. Additional settings can be included by passing an options map.</dd>
+  ##### queueLocal(String nodeId, String name[, Map options])
+  Sets up a local queue and its corresponding error queue, nodeId and queue name are required. The name prefix (QC, QL) will automatically be determined and should not be included on the name. Additional settings can be included by passing an options map.
 
-  <dt>queueLocal(String name[, Map options])</dt>
-  <dd>Creates a non dc-specific local queue. Different from above method in that:
+  ##### queueLocal(String name[, Map options])
+  Creates a non dc-specific local queue. Different from above method in that:
     <ul>
       <li>nodeId is not required</li>
       <li>full queue name including prefix is expected</li>
       <li>a corresponding error queue is NOT created</li>
     </ul>
-  </dd>
 
-  <dt>queueRemote(String nodeId, String name[, Map options])</dt>
-  <dd>Sets up a remote queue, nodeId and queue name are required. The name prefix (QR) will automatically be added and should not be included on the name. Additional settings can be included by passing an options map.</dd>
 
-  <dt>queueRemote(String name[, Map options])</dt>
-  <dd>Creates a non dc-specific remote queue. Different from above method in that:
+  ##### queueRemote(String nodeId, String name[, Map options])
+  Sets up a remote queue, nodeId and queue name are required. The name prefix (QR) will automatically be added and should not be included on the name. Additional settings can be included by passing an options map.
+
+  ##### queueRemote(String name[, Map options])
+  Creates a non dc-specific remote queue. Different from above method in that:
     <ul>
       <li>nodeId is not required</li>
       <li>full queue name including prefix is expected</li>
     </ul>
-  </dd>
 
-  <dt>queueAlias(String nodeId, String name)</dt>
-  <dd>Creates an alias queue, nodeId and name are required. The name prefix (QA) will automatically be added and should not be included on the name.</dd>
 
-  <dt>channel(String name, String type[, Map options])</dt>
-  <dd>Defines a channel with the given name and type. Preset settings can be overridden by passing an options map.</dd>
+  ##### queueAlias(String nodeId, String name)
+  Creates an alias queue, nodeId and name are required. The name prefix (QA) will automatically be added and should not be included on the name.
 
-  <dt>listener(String name, String port)</dt>
-  <dd>Defines a listener with the given name on the given port.</dd>
+  ##### channel(String name, String type[, Map options])
+  Defines a channel with the given name and type. Preset settings can be overridden by passing an options map.
 
-  <dt>systemBrokerService(String poetQueueManager)</dt>
-  <dd>Defines the system broker service for the given local poetQueueManager</dd>
+  ##### listener(String name, String port)
+  Defines a listener with the given name on the given port.
 
-  <dt>systemDefaults()</dt>
-  <dd>This is somewhat of a catch-all method to create boilerplate configurations. Any changes to this should be made directly in MqsFileBuilder.groovy.</dd>
-</dl>`
+  ##### systemBrokerService(String poetQueueManager)
+  Defines the system broker service for the given local poetQueueManager
+
+  ##### systemDefaults()
+  This is somewhat of a catch-all method to create boilerplate configurations. Any changes to this should be made directly in MqsFileBuilder.groovy.
 
 ### compare_mqs_files.py
 A simple utility to help with mqs file comparison. More than just a diff, will compare all contents of each file (independent of queue definition order) and output any differences.
@@ -75,8 +74,8 @@ A simple utility to help with mqs file comparison. More than just a diff, will c
     options:
 
     <dl>
-      <dt>--detailed</dt>
-      <dd>includes detailed diff of mq definition options</dd>
+      ##### --detailed
+      includes detailed diff of mq definition options
     </dl>
 
 ## Build/Generate 
@@ -87,7 +86,7 @@ A simple utility to help with mqs file comparison. More than just a diff, will c
 * Optionally generated files can be compared using compare_mqs_files.py utility
 
 ## Deploy
-* For local envirionments rebuild local Docker with new .mqsc file.
+* For local envirionments rebuild local Docker with new .mqsc file
 
   `>rebuild-container.sh` 
 * For all other environments :
