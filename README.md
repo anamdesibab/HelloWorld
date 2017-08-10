@@ -1,7 +1,6 @@
 # MQ Environment Setup
 
-The following utilities will generate .mqs files for each POET environment as seen on the [gapMQSeries Prod](https://github.gapinc.com/eis/gapMQSeriesMQSC_PROD) repository and [gapMQSeries Test](https://github.gapinc.com/eis/gapMQSeriesMQSC_TEST) repository.
-This is also where any changes should be committed. The repositories should be cloned into _~/POET_, so the appropriate files can be automatically be over-written as described below:
+The following utilities will generate .mqsc files for each POET environment as seen on the [gapMQSeries Prod](https://github.gapinc.com/eis/gapMQSeriesMQSC_PROD) repository and [gapMQSeries Test](https://github.gapinc.com/eis/gapMQSeriesMQSC_TEST) repository. This is also where any changes should be committed. 
 
 ## Pre-requisites 
 
@@ -9,7 +8,7 @@ This is also where any changes should be committed. The repositories should be c
 This file contains all environment specific configurations. To add a new environment or change an existing one, simply modify this file.
 
 ### build_mq_environments.groovy
-This file has all the required queues for the POET. To add a new queue, simply add a new line to build_mq_environments.groovy, see [MqsFileBuilder.groovy](MqsFileBuilder.groovy) for available methods. 
+This file has all the required queues for the POET. To add a new queue, simply add a MQ object to build_mq_environments.groovy, see [MqsFileBuilder.groovy](MqsFileBuilder.groovy) for available methods. 
 
 ### MqsFileBuilder.groovy
 The following are methods that can be used in build_mq_environments.groovy
@@ -69,27 +68,31 @@ The following are methods that can be used in build_mq_environments.groovy
 ### compare_mqs_files.py
 A simple utility to help with mqs file comparison. More than just a diff, will compare all contents of each file (independent of queue definition order) and output any differences.
 
-Example usage:
+    Example usage:
 
-```
-python compare_mqs_files.py [options] <input-file-a> <input-file-b>
+    ```
+    python compare_mqs_files.py [options] <input-file-a> <input-file-b>
 
-options:
+    options:
 
-<dl>
-  <dt>--detailed</dt>
-  <dd>includes detailed diff of mq definition options</dd>
-</dl>
-```
+    <dl>
+      <dt>--detailed</dt>
+      <dd>includes detailed diff of mq definition options</dd>
+    </dl>
+    ```
 
 ## Build/Generate 
-* Validate all the environment information in the .json file.  
-* Review/update MQ objects in .groovy file. 
-* Run `groovy build_mq_environments.groovy`, .mqs files will be generated in the mqsc directory of the above gapMQSeries repository fork.
-* Review generated .mqs files
-* Option generated files can be compared using 
+* Validate all the environment information in the mq-environment-config.json file.  
+* Review/update MQ objects in build_mq_environments.groovy file. 
+* Run `groovy build_mq_environments.groovy`, .mqsc files will be generated in the mqsc directory of the above gapMQSeries repository fork.
+* Review generated .mqsc files
+* Optionally generated files can be compared using compare_mqs_files.py utility
 
 ## Deploy
 * For local envirionments rebuild local Docker with new .mqsc file
   `> rebuild-container.sh` 
-* For all other environments, create a infra story and attach generated mqsc files.  
+* For all other environments :
+** Remove all the already existing MQ objects from generated .mqsc file to make sure to have only delta MQ objects
+** Create infra story and attach update file with delta changes.
+** Assign it to MQ team for deployment.
+
