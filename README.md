@@ -66,7 +66,7 @@ The following are methods that can be used in build_mq_environments.groovy
   <dd>This is somewhat of a catch-all method to create boilerplate configurations. Any changes to this should be made directly in MqsFileBuilder.groovy.</dd>
 </dl>
 
-## compare_mqs_files.py
+#### compare_mqs_files.py
 A simple utility to help with mqs file comparison. More than just a diff, will compare all contents of each file (independent of queue definition order) and output any differences.
 
 Example usage:
@@ -91,5 +91,5 @@ options:
 
 ## Deploy
 * For local envirionments rebuild local Docker with new .mqsc file
-  `> rebuild-container.sh` 
+`> rebuild-container.sh` 
 * For all other environments, create a infra story and attach generated mqsc files.  
