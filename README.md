@@ -90,9 +90,10 @@ A simple utility to help with mqs file comparison. More than just a diff, will c
 
 ## Deploy
 * For local envirionments rebuild local Docker with new .mqsc file
+
   `> rebuild-container.sh` 
 * For all other environments :
-** Remove all the already existing MQ objects from generated .mqsc file to make sure to have only delta MQ objects
-** Create infra story and attach update file with delta changes.
-** Assign it to MQ team for deployment.
+  * Remove all the already existing MQ objects from generated .mqsc file to make sure to have only delta MQ objects
+  * Create infra story and attach update file with delta changes.
+  * Assign it to MQ team for deployment.
 
