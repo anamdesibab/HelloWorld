@@ -13,9 +13,10 @@ This file has all the required queues for the POET. To add a new queue, simply a
 ### MqsFileBuilder.groovy
 The following are methods that can be used in build_mq_environments.groovy
 
-`#### header(String poetQueueManager)
-Adds a header to the file with the current date/time and the given queue manager name
-<dl>
+`<dl>
+  <dt>header(String poetQueueManager)</dt>
+  <dt>Adds a header to the file with the current date/time and the given queue manager name</dt>
+
   <dt>localQueueManager(String name)</dt>
   <dd>Configures the local queue manager with the given name and preset settings.</dd>
 
