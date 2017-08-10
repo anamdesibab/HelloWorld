@@ -70,8 +70,7 @@ A simple utility to help with mqs file comparison. More than just a diff, will c
 
     Example usage:
 
-    ```
-    python compare_mqs_files.py [options] <input-file-a> <input-file-b>
+    `>python compare_mqs_files.py [options] <input-file-a> <input-file-b>`
 
     options:
 
@@ -79,7 +78,6 @@ A simple utility to help with mqs file comparison. More than just a diff, will c
       <dt>--detailed</dt>
       <dd>includes detailed diff of mq definition options</dd>
     </dl>
-    ```
 
 ## Build/Generate 
 * Validate all the environment information in the mq-environment-config.json file.
@@ -91,7 +89,7 @@ A simple utility to help with mqs file comparison. More than just a diff, will c
 ## Deploy
 * For local envirionments rebuild local Docker with new .mqsc file
 
-  `> rebuild-container.sh` 
+  `>rebuild-container.sh` 
 * For all other environments :
   * Remove all the already existing MQ objects from generated .mqsc file to make sure to have only delta MQ objects
   * Create infra story and attach update file with delta changes.
