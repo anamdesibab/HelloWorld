@@ -5,11 +5,11 @@ This is also where any changes should be committed. The repositories should be c
 
 # Pre-requisites 
 
+## mq-environment-config.json
+This file contains all environment specific configurations. To add a new environment or change an existing one, simply modify this file.
+
 ## build_mq_environments.groovy
 This file has all the required queues for the POET. To add a new queue, simply add a new line to build_mq_environments.groovy, see [MqsFileBuilder.groovy](MqsFileBuilder.groovy) for available methods. 
-
-### mq-environment-config.json
-This file contains all environment specific configurations. To add a new environment or change an existing one, simply modify this file.
 
 ## MqsFileBuilder.groovy
 The following are methods that can be used in build_mq_environments.groovy
@@ -67,7 +67,10 @@ The following are methods that can be used in build_mq_environments.groovy
 </dl>
 
 ## Build/Generate 
-Run `groovy build_mq_environments.groovy`, .mqs files will be generated in the mqsc directory of the above gapMQSeries repository fork.
+> Validate all the environment information in the .json file.  
+> Review/update MQ objects in .groovy file. 
+> Run `groovy build_mq_environments.groovy`, .mqs files will be generated in the mqsc directory of the above gapMQSeries repository fork.
+> Review generated .mqs files
 
 ## compare_mqs_files.py
 A simple utility to help with mqs file comparison. More than just a diff, will compare all contents of each file (independent of queue definition order) and output any differences.
@@ -82,3 +85,5 @@ A simple utility to help with mqs file comparison. More than just a diff, will c
   <dt>--detailed</dt>
   <dd>includes detailed diff of mq definition options</dd>
 </dl>
+
+
