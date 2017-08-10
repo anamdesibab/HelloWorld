@@ -87,7 +87,7 @@ A simple utility to help with mqs file comparison. More than just a diff, will c
 * Optionally generated files can be compared using compare_mqs_files.py utility
 
 ## Deploy
-* For local envirionments rebuild local Docker with new .mqsc file
+* For local envirionments rebuild local Docker with new .mqsc file.
 
   `>rebuild-container.sh` 
 * For all other environments :
