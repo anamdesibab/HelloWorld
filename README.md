@@ -67,10 +67,10 @@ The following are methods that can be used in build_mq_environments.groovy
 </dl>
 
 ## Build/Generate 
-> Validate all the environment information in the .json file.  
-> Review/update MQ objects in .groovy file. 
-> Run `groovy build_mq_environments.groovy`, .mqs files will be generated in the mqsc directory of the above gapMQSeries repository fork.
-> Review generated .mqs files
+* Validate all the environment information in the .json file.  
+* Review/update MQ objects in .groovy file. 
+* Run `groovy build_mq_environments.groovy`, .mqs files will be generated in the mqsc directory of the above gapMQSeries repository fork.
+* Review generated .mqs files
 
 ## compare_mqs_files.py
 A simple utility to help with mqs file comparison. More than just a diff, will compare all contents of each file (independent of queue definition order) and output any differences.
@@ -85,5 +85,3 @@ A simple utility to help with mqs file comparison. More than just a diff, will c
   <dt>--detailed</dt>
   <dd>includes detailed diff of mq definition options</dd>
 </dl>
-
-
