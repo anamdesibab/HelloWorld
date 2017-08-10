@@ -13,7 +13,7 @@ This file has all the required queues for the POET. To add a new queue, simply a
 ### MqsFileBuilder.groovy
 The following are methods that can be used in build_mq_environments.groovy
 
-#### header(String poetQueueManager)
+`#### header(String poetQueueManager)
 Adds a header to the file with the current date/time and the given queue manager name
 <dl>
   <dt>localQueueManager(String name)</dt>
@@ -62,7 +62,7 @@ Adds a header to the file with the current date/time and the given queue manager
 
   <dt>systemDefaults()</dt>
   <dd>This is somewhat of a catch-all method to create boilerplate configurations. Any changes to this should be made directly in MqsFileBuilder.groovy.</dd>
-</dl>
+</dl>`
 
 ### compare_mqs_files.py
 A simple utility to help with mqs file comparison. More than just a diff, will compare all contents of each file (independent of queue definition order) and output any differences.
