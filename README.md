@@ -66,22 +66,30 @@ The following are methods that can be used in build_mq_environments.groovy
   <dd>This is somewhat of a catch-all method to create boilerplate configurations. Any changes to this should be made directly in MqsFileBuilder.groovy.</dd>
 </dl>
 
-## Build/Generate 
-* Validate all the environment information in the .json file.  
-* Review/update MQ objects in .groovy file. 
-* Run `groovy build_mq_environments.groovy`, .mqs files will be generated in the mqsc directory of the above gapMQSeries repository fork.
-* Review generated .mqs files
-
 ## compare_mqs_files.py
 A simple utility to help with mqs file comparison. More than just a diff, will compare all contents of each file (independent of queue definition order) and output any differences.
 
-### Example usage:
+Example usage:
 
-`python compare_mqs_files.py [options] <input-file-a> <input-file-b>`
+```
+python compare_mqs_files.py [options] <input-file-a> <input-file-b>
 
-### options:
+options:
 
 <dl>
   <dt>--detailed</dt>
   <dd>includes detailed diff of mq definition options</dd>
 </dl>
+```
+
+## Build/Generate 
+* Validate all the environment information in the .json file.  
+* Review/update MQ objects in .groovy file. 
+* Run `groovy build_mq_environments.groovy`, .mqs files will be generated in the mqsc directory of the above gapMQSeries repository fork.
+* Review generated .mqs files
+* Option generated files can be compared using 
+
+## Deploy
+* For local envirionments rebuild local Docker with new .mqsc file
+  `> rebuild-container.sh` 
+* For all other environments, create a infra story and attach generated mqsc files.  
