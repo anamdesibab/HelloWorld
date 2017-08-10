@@ -5,13 +5,13 @@ This is also where any changes should be committed. The repositories should be c
 
 # Pre-requisites 
 
-### mq-environment-config.json
+## mq-environment-config.json
 This file contains all environment specific configurations. To add a new environment or change an existing one, simply modify this file.
 
-### build_mq_environments.groovy
+## build_mq_environments.groovy
 This file has all the required queues for the POET. To add a new queue, simply add a new line to build_mq_environments.groovy, see [MqsFileBuilder.groovy](MqsFileBuilder.groovy) for available methods. 
 
-### MqsFileBuilder.groovy
+## MqsFileBuilder.groovy
 The following are methods that can be used in build_mq_environments.groovy
 
 <dl>
@@ -66,7 +66,7 @@ The following are methods that can be used in build_mq_environments.groovy
   <dd>This is somewhat of a catch-all method to create boilerplate configurations. Any changes to this should be made directly in MqsFileBuilder.groovy.</dd>
 </dl>
 
-#### compare_mqs_files.py
+## compare_mqs_files.py
 A simple utility to help with mqs file comparison. More than just a diff, will compare all contents of each file (independent of queue definition order) and output any differences.
 
 Example usage:
