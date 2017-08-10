@@ -82,7 +82,7 @@ A simple utility to help with mqs file comparison. More than just a diff, will c
     ```
 
 ## Build/Generate 
-* Validate all the environment information in the mq-environment-config.json file.  
+* Validate all the environment information in the mq-environment-config.json file.
 * Review/update MQ objects in build_mq_environments.groovy file. 
 * Run `groovy build_mq_environments.groovy`, .mqsc files will be generated in the mqsc directory of the above gapMQSeries repository fork.
 * Review generated .mqsc files
